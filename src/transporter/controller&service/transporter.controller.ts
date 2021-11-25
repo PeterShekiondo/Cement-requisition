@@ -1,6 +1,6 @@
 import { Body, Controller, Post, UseGuards, UsePipes, ValidationPipe } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { CreateTransporterDto } from './dto/create-transporter.dto';
+import { CreateTransporterDto } from '../dto/create-transporter.dto';
 import { TransporterService } from './transporter.service';
 
 @Controller('transporter')

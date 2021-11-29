@@ -9,35 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TransporterEntity = void 0;
+exports.CreateTruckDto = void 0;
 const class_validator_1 = require("class-validator");
-const typeorm_1 = require("typeorm");
-let TransporterEntity = class TransporterEntity extends typeorm_1.BaseEntity {
-};
+class CreateTruckDto {
+}
 __decorate([
-    typeorm_1.PrimaryGeneratedColumn(),
-    __metadata("design:type", Number)
-], TransporterEntity.prototype, "id", void 0);
-__decorate([
-    typeorm_1.Column(),
+    class_validator_1.IsNotEmpty(),
     __metadata("design:type", String)
-], TransporterEntity.prototype, "name", void 0);
+], CreateTruckDto.prototype, "brand", void 0);
 __decorate([
-    class_validator_1.IsOptional(),
-    typeorm_1.Column({ nullable: true }),
+    class_validator_1.IsNotEmpty(),
     __metadata("design:type", String)
-], TransporterEntity.prototype, "company", void 0);
+], CreateTruckDto.prototype, "truckNumber", void 0);
 __decorate([
-    typeorm_1.Column(),
+    class_validator_1.IsNotEmpty(),
     __metadata("design:type", String)
-], TransporterEntity.prototype, "phone", void 0);
+], CreateTruckDto.prototype, "capacity", void 0);
 __decorate([
-    typeorm_1.Column(),
+    class_validator_1.IsNotEmpty(),
     __metadata("design:type", String)
-], TransporterEntity.prototype, "driverLisence", void 0);
-TransporterEntity = __decorate([
-    typeorm_1.Entity(),
-    typeorm_1.Unique(['driverLisence'])
-], TransporterEntity);
-exports.TransporterEntity = TransporterEntity;
-//# sourceMappingURL=transporter.entity.js.map
+], CreateTruckDto.prototype, "numberOfTrailers", void 0);
+exports.CreateTruckDto = CreateTruckDto;
+//# sourceMappingURL=createTruck.dto.js.map

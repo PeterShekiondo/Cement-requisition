@@ -14,7 +14,8 @@ const typeorm_config_1 = require("./config/typeorm.config");
 const tasks_module_1 = require("./tasks/tasks.module");
 const auth_module_1 = require("./auth/auth.module");
 const transporter_module_1 = require("./transporter/transporter.module");
-const trucks_module_1 = require("./trucks/trucks.module");
+const truck_module_1 = require("./truck/truck.module");
+const tender_states_module_1 = require("./tender-states/tender-states.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -25,7 +26,8 @@ AppModule = __decorate([
             tasks_module_1.TasksModule,
             auth_module_1.AuthModule,
             transporter_module_1.TransporterModule,
-            trucks_module_1.TrucksModule,
+            truck_module_1.TrucksModule,
+            tender_states_module_1.TenderStatesModule,
         ],
     })
 ], AppModule);

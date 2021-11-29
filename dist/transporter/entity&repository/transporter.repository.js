@@ -13,7 +13,7 @@ const transporter_entity_1 = require("./transporter.entity");
 let TransporterRepository = class TransporterRepository extends typeorm_1.Repository {
     async createTransporter(createTransporterDto) {
         const { name, company, driverLisence, phone, } = createTransporterDto;
-        const transporter = new transporter_entity_1.Transporter();
+        const transporter = new transporter_entity_1.TransporterEntity();
         transporter.name = name;
         transporter.phone = phone;
         transporter.company = company && company;
@@ -32,7 +32,7 @@ let TransporterRepository = class TransporterRepository extends typeorm_1.Reposi
     }
 };
 TransporterRepository = __decorate([
-    typeorm_1.EntityRepository(transporter_entity_1.Transporter)
+    typeorm_1.EntityRepository(transporter_entity_1.TransporterEntity)
 ], TransporterRepository);
 exports.TransporterRepository = TransporterRepository;
 //# sourceMappingURL=transporter.repository.js.map

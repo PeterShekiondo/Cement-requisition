@@ -1,5 +1,5 @@
 import { BaseEntity } from 'typeorm';
-export declare class Transporter extends BaseEntity {
+export declare class TransporterEntity extends BaseEntity {
     id: number;
     name: string;
     company: string;

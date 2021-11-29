@@ -9,35 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TransporterEntity = void 0;
-const class_validator_1 = require("class-validator");
+exports.TenderStateEntity = void 0;
 const typeorm_1 = require("typeorm");
-let TransporterEntity = class TransporterEntity extends typeorm_1.BaseEntity {
+let TenderStateEntity = class TenderStateEntity extends typeorm_1.BaseEntity {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
-], TransporterEntity.prototype, "id", void 0);
+], TenderStateEntity.prototype, "id", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], TransporterEntity.prototype, "name", void 0);
-__decorate([
-    class_validator_1.IsOptional(),
-    typeorm_1.Column({ nullable: true }),
-    __metadata("design:type", String)
-], TransporterEntity.prototype, "company", void 0);
+], TenderStateEntity.prototype, "name", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], TransporterEntity.prototype, "phone", void 0);
-__decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], TransporterEntity.prototype, "driverLisence", void 0);
-TransporterEntity = __decorate([
+], TenderStateEntity.prototype, "color", void 0);
+TenderStateEntity = __decorate([
     typeorm_1.Entity(),
-    typeorm_1.Unique(['driverLisence'])
-], TransporterEntity);
-exports.TransporterEntity = TransporterEntity;
-//# sourceMappingURL=transporter.entity.js.map
+    typeorm_1.Unique(['truckNumber'])
+], TenderStateEntity);
+exports.TenderStateEntity = TenderStateEntity;
+//# sourceMappingURL=tender-state.entity.js.map

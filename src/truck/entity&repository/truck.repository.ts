@@ -6,7 +6,7 @@ import { TruckEntity } from "./truck.entity";
 @EntityRepository(TruckEntity)
 export class TruckRepository extends Repository<TruckEntity>{
 
-    async createTransporter(createTruckDto: CreateTruckDto):Promise<void>{
+    async createTruck(createTruckDto: CreateTruckDto):Promise<void>{
         const { 
             brand, 
             truckNumber,

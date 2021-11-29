@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TransporterController = void 0;
 const common_1 = require("@nestjs/common");
 const passport_1 = require("@nestjs/passport");
-const create_transporter_dto_1 = require("./dto/create-transporter.dto");
+const create_transporter_dto_1 = require("../dto/create-transporter.dto");
 const transporter_service_1 = require("./transporter.service");
 let TransporterController = class TransporterController {
     constructor(transporterService) {

@@ -10,9 +10,9 @@ exports.TransporterModule = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const auth_module_1 = require("../auth/auth.module");
-const transporter_controller_1 = require("./transporter.controller");
+const transporter_controller_1 = require("./controller&service/transporter.controller");
 const transporter_repository_1 = require("./entity&repository/transporter.repository");
-const transporter_service_1 = require("./transporter.service");
+const transporter_service_1 = require("./controller&service/transporter.service");
 let TransporterModule = class TransporterModule {
 };
 TransporterModule = __decorate([

@@ -3,21 +3,22 @@ import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, Unique } from 'type
 // import { TaskStatus } from './task-status.enum';
 
 @Entity()
-@Unique(['driverLisence'])
-export class TransporterEntity extends BaseEntity {
+@Unique(['truckNumber'])
+export class TruckEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  name: string;
+  brand: string;
 
-  @IsOptional()
+  @Column()
+  truckNumber: string;
+  
   @Column({nullable:true})
-  company: string;
+  capacity: string;
 
-  @Column()
-  phone: string;
+  @Column({nullable:true})
+  numberOfTrailers: string;
 
-  @Column()
-  driverLisence: string;
+
 }

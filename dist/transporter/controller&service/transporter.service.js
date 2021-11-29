@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TransporterService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
-const transporter_repository_1 = require("./entity&repository/transporter.repository");
+const transporter_repository_1 = require("../entity&repository/transporter.repository");
 let TransporterService = class TransporterService {
     constructor(transporterRepository) {
         this.transporterRepository = transporterRepository;

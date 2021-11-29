@@ -5,7 +5,7 @@ import { typeOrmConfig } from './config/typeorm.config';
 import { TasksModule } from './tasks/tasks.module';
 import { AuthModule } from './auth/auth.module';
 import { TransporterModule } from './transporter/transporter.module';
-import { TrucksModule } from './trucks/trucks.module';
+import { TrucksModule } from './truck/truck.module';
 
 @Module({
   imports: [

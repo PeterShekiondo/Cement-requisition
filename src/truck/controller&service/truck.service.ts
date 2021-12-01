@@ -9,6 +9,7 @@ export class TruckService {
         @InjectRepository(TruckRepository)
         private truckRepository : TruckRepository
     ){}
+    
     createTruck (createTruckDto: CreateTruckDto): Promise<void>{
         return this.truckRepository.createTruck(createTruckDto)
     }

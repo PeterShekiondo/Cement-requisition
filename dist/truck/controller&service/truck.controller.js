@@ -33,9 +33,9 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], TruckController.prototype, "createTruck", null);
 TruckController = __decorate([
-    common_1.Controller('trucks'),
     common_1.UseGuards(passport_1.AuthGuard()),
     common_1.UsePipes(common_1.ValidationPipe),
+    common_1.Controller('trucks'),
     __metadata("design:paramtypes", [truck_service_1.TruckService])
 ], TruckController);
 exports.TruckController = TruckController;

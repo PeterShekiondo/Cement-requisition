@@ -26,8 +26,7 @@ __decorate([
     __metadata("design:type", String)
 ], TenderStateEntity.prototype, "color", void 0);
 TenderStateEntity = __decorate([
-    typeorm_1.Entity(),
-    typeorm_1.Unique(['truckNumber'])
+    typeorm_1.Entity()
 ], TenderStateEntity);
 exports.TenderStateEntity = TenderStateEntity;
 //# sourceMappingURL=tender-state.entity.js.map

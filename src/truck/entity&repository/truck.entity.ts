@@ -20,5 +20,4 @@ export class TruckEntity extends BaseEntity {
   @Column({nullable:true})
   numberOfTrailers: string;
 
-
 }

@@ -2,7 +2,6 @@ import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, Unique } from 'type
 // import { TenderStatus } from './tender-state.enum';
 
 @Entity()
-@Unique(['truckNumber'])
 export class TenderStateEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;

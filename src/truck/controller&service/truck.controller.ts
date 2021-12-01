@@ -3,9 +3,9 @@ import { AuthGuard } from '@nestjs/passport';
 import { CreateTruckDto } from '../dto/createTruck.dto';
 import { TruckService } from './truck.service';
 
-@Controller('trucks')
 @UseGuards(AuthGuard()) // guarding every request fo jwt-strategy
 @UsePipes(ValidationPipe)
+@Controller('trucks')
 export class TruckController {
     constructor(
         private truckService : TruckService

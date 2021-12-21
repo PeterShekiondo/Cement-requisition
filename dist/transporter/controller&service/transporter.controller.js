@@ -29,13 +29,13 @@ __decorate([
     common_1.Post('/create'),
     __param(0, common_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_transporter_dto_1.CreateTransporterDto]),
+    __metadata("design:paramtypes", [create_transporter_dto_1.TransporterDto.CreateTransporterDto]),
     __metadata("design:returntype", Promise)
 ], TransporterController.prototype, "createTransporter", null);
 TransporterController = __decorate([
-    common_1.Controller('transporter'),
     common_1.UseGuards(passport_1.AuthGuard()),
     common_1.UsePipes(common_1.ValidationPipe),
+    common_1.Controller('transporter'),
     __metadata("design:paramtypes", [transporter_service_1.TransporterService])
 ], TransporterController);
 exports.TransporterController = TransporterController;

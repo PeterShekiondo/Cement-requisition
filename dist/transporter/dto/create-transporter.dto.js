@@ -9,21 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateTransporterDto = void 0;
+exports.TransporterDto = void 0;
 const class_validator_1 = require("class-validator");
-class CreateTransporterDto {
-}
-__decorate([
-    class_validator_1.IsNotEmpty(),
-    __metadata("design:type", String)
-], CreateTransporterDto.prototype, "name", void 0);
-__decorate([
-    class_validator_1.IsNotEmpty(),
-    __metadata("design:type", String)
-], CreateTransporterDto.prototype, "driverLisence", void 0);
-__decorate([
-    class_validator_1.IsNotEmpty(),
-    __metadata("design:type", String)
-], CreateTransporterDto.prototype, "phone", void 0);
-exports.CreateTransporterDto = CreateTransporterDto;
+var TransporterDto;
+(function (TransporterDto) {
+    class CreateTransporterDto {
+    }
+    __decorate([
+        class_validator_1.IsNotEmpty(),
+        __metadata("design:type", String)
+    ], CreateTransporterDto.prototype, "name", void 0);
+    __decorate([
+        class_validator_1.IsNotEmpty(),
+        __metadata("design:type", String)
+    ], CreateTransporterDto.prototype, "driverLisence", void 0);
+    __decorate([
+        class_validator_1.IsNotEmpty(),
+        __metadata("design:type", String)
+    ], CreateTransporterDto.prototype, "phone", void 0);
+    TransporterDto.CreateTransporterDto = CreateTransporterDto;
+})(TransporterDto = exports.TransporterDto || (exports.TransporterDto = {}));
 //# sourceMappingURL=create-transporter.dto.js.map

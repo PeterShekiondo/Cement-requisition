@@ -16,6 +16,7 @@ const auth_module_1 = require("./auth/auth.module");
 const transporter_module_1 = require("./transporter/transporter.module");
 const truck_module_1 = require("./truck/truck.module");
 const tender_states_module_1 = require("./tender-states/tender-states.module");
+const invoice_module_1 = require("./invoice/invoice.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -28,6 +29,7 @@ AppModule = __decorate([
             transporter_module_1.TransporterModule,
             truck_module_1.TrucksModule,
             tender_states_module_1.TenderStatesModule,
+            invoice_module_1.InvoiceModule,
         ],
     })
 ], AppModule);

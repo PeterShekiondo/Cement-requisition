@@ -1,7 +1,4 @@
-import { IsOptional } from 'class-validator';
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, Unique } from 'typeorm';
-// import { TaskStatus } from './task-status.enum';
-
 @Entity()
 @Unique(['truckNumber'])
 export class TruckEntity extends BaseEntity {

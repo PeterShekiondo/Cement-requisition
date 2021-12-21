@@ -1,12 +1,12 @@
 import { ConflictException, InternalServerErrorException } from "@nestjs/common";
 import { EntityRepository, Repository } from "typeorm";
-import { CreateTransporterDto } from "../dto/create-transporter.dto";
+import { TransporterDto } from "../dto/create-transporter.dto";
 import { TransporterEntity } from "./transporter.entity";
 
 @EntityRepository(TransporterEntity)
 export class TransporterRepository extends Repository<TransporterEntity>{
 
-    async createTransporter(createTransporterDto: CreateTransporterDto):Promise<void>{
+    async createTransporter(createTransporterDto: TransporterDto.CreateTransporterDto):Promise<void>{
         const { 
             name, 
             company,

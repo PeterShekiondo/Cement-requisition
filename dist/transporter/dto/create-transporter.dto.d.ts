@@ -1,6 +1,8 @@
-export declare class CreateTransporterDto {
-    name: string;
-    company: string;
-    driverLisence: string;
-    phone: string;
+export declare namespace TransporterDto {
+    class CreateTransporterDto {
+        name: string;
+        company: string;
+        driverLisence: string;
+        phone: string;
+    }
 }

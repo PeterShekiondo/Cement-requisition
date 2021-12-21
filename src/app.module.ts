@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { TransporterModule } from './transporter/transporter.module';
 import { TrucksModule } from './truck/truck.module';
 import { TenderStatesModule } from './tender-states/tender-states.module';
+import { InvoiceModule } from './invoice/invoice.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { TenderStatesModule } from './tender-states/tender-states.module';
     TransporterModule,
     TrucksModule,
     TenderStatesModule,
+    InvoiceModule,
   ],
 })
 export class AppModule {}

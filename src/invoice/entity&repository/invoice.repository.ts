@@ -6,13 +6,13 @@ import { InvoiceEntity } from "./invoice.entity";
 @EntityRepository(InvoiceEntity)
 export class InvoiceRepository extends Repository<InvoiceEntity>{
 
-    async createInvoice (createInvoiceDto: InvoiceDto.CreateInvoiceDto ) {
+    async createInvoice(createInvoiceDto: InvoiceDto.CreateInvoiceDto) {
         const {
-        bankName,
-        amount,
-        invoiceNumber,
-        detail,
-        currency
+            bankName,
+            amount,
+            invoiceNumber,
+            detail,
+            currency
         } = createInvoiceDto
         const invoice = new InvoiceEntity()
         invoice.bankName = bankName

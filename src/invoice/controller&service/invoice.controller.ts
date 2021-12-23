@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Patch, Post, UseGuards, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards, UsePipes, ValidationPipe } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { InvoiceDto } from '../dto/create-invoice.dto';
 import { InvoiceEntity } from '../entity&repository/invoice.entity';
@@ -22,8 +22,8 @@ export class InvoicesController {
     }
 
     @Post('/create')
-    createInvoice(@Body() createInvoiceDto: InvoiceDto.CreateInvoiceDto){
-        this.invoiceService.createInvoice(createInvoiceDto)        
+    createInvoice(@Body() createInvoiceDto: InvoiceDto.CreateInvoiceDto):Promise<void>{
+        return this.invoiceService.createInvoice(createInvoiceDto)        
     }
 
     @Patch('/upadte/:invoiceNumber')
@@ -33,4 +33,10 @@ export class InvoicesController {
         ):Promise<InvoiceEntity[]>{
         return this.invoiceService.updateInvoice(invoiceNumber, createInvoiceDto)        
     }
+
+    @Delete('/delete')
+    deleteInvoice(@Body() createInvoiceDto: InvoiceDto.DeleteInvoice):Promise<string>{
+        return this.invoiceService.deleteInvoice(createInvoiceDto)
+    }
+
 }

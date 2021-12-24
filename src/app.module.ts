@@ -8,6 +8,7 @@ import { TransporterModule } from './transporter/transporter.module';
 import { TrucksModule } from './truck/truck.module';
 import { TenderStatesModule } from './tender-states/tender-states.module';
 import { InvoiceModule } from './invoice/invoice.module';
+import { MailModule } from './mail/mail.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { InvoiceModule } from './invoice/invoice.module';
     TrucksModule,
     TenderStatesModule,
     InvoiceModule,
+    MailModule,
   ],
 })
 export class AppModule {}

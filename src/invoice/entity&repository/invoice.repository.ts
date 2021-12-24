@@ -6,7 +6,7 @@ import { InvoiceEntity } from "./invoice.entity";
 @EntityRepository(InvoiceEntity)
 export class InvoiceRepository extends Repository<InvoiceEntity>{
 
-    async createInvoice(createInvoiceDto: InvoiceDto.CreateInvoiceDto) {
+    async createInvoice(createInvoiceDto: InvoiceDto.CreateInvoiceDto):Promise<void> {
         const {
             bankName,
             amount,
@@ -25,9 +25,9 @@ export class InvoiceRepository extends Repository<InvoiceEntity>{
         } catch (error) {
             if (error.code == 23505) {
                 throw new ConflictException(`Invoice with number ${invoiceNumber} already exist`);
-            } else {
+            } 
                 throw new InternalServerErrorException('');
-            }
+            
         } 
 
     }

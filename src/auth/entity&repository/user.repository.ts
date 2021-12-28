@@ -4,11 +4,15 @@ import {
 } from '@nestjs/common';
 import { EntityRepository, Repository } from 'typeorm';
 import { AuthCredentialsDto, AuthSignInCredentialsDto } from '../dto/auth-signup-credentials.dto';
+import { MailService } from 'src/mail/controller&service/mail.service' 
 import { User } from './user.entity';
 import * as bcrypt from 'bcrypt';
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
+  constructor(private mailService: MailService) {
+    super();
+  }
 
   async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
     const {
@@ -39,11 +43,16 @@ export class UserRepository extends Repository<User> {
 
     try {
       await user.save();
+      const messageBuilder = this.mailService.createMessageBuilder()
+      const mailMessage = messageBuilder.build()
+      this.mailService.send(mailMessage, 'eistain94@gmail.com')
     } catch (error) {
       if (error.code == 23505) {
         throw new ConflictException('Account already exist');
       } else {
+        console.log(error);
         throw new InternalServerErrorException('');
+        
       }
     }
   }

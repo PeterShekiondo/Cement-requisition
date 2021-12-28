@@ -2,10 +2,11 @@ import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AuthController } from './auth.controller';
-import { AuthService } from './auth.service';
+import { AuthController } from './controller&service/auth.controller';
+import { AuthService } from './controller&service/auth.service';
 import { UserRepository } from './entity&repository/user.repository';
 import { JwtStrategy } from './jwtStrategies/jwt.strategy';
+import { MailModule } from 'src/mail/mail.module';
 import * as config from 'config';
 
 const jwtConfig = config.get('jwt')
@@ -20,6 +21,7 @@ const jwtConfig = config.get('jwt')
       },
     }), //import and register JwtModule and configure secret and expiration time.
     TypeOrmModule.forFeature([UserRepository]),
+    MailModule,
   ],
   controllers: [AuthController],
   providers: [AuthService, JwtStrategy],

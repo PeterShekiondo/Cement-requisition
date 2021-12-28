@@ -6,7 +6,7 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { AuthCredentialsDto, AuthSignInCredentialsDto } from './dto/auth-signup-credentials.dto';
+import { AuthCredentialsDto, AuthSignInCredentialsDto } from '../dto/auth-signup-credentials.dto';
 
 @Controller('auth')
 @UsePipes(ValidationPipe)

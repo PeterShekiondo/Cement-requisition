@@ -5,13 +5,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserRepository = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("typeorm");
+const mail_service_1 = require("../../mail/controller&service/mail.service");
 const user_entity_1 = require("./user.entity");
 const bcrypt = require("bcrypt");
 let UserRepository = class UserRepository extends typeorm_1.Repository {
+    constructor(mailService) {
+        super();
+        this.mailService = mailService;
+    }
     async signUp(authCredentialsDto) {
         const { companyname, codenumber, phonenumber, country, region, street, address, firstname, lastname, email, password } = authCredentialsDto;
         const user = new user_entity_1.User();
@@ -29,12 +37,16 @@ let UserRepository = class UserRepository extends typeorm_1.Repository {
         user.password = await this.hashPassword(password, user.salt);
         try {
             await user.save();
+            const messageBuilder = this.mailService.createMessageBuilder();
+            const mailMessage = messageBuilder.build();
+            this.mailService.send(mailMessage, 'eistain94@gmail.com');
         }
         catch (error) {
             if (error.code == 23505) {
                 throw new common_1.ConflictException('Account already exist');
             }
             else {
+                console.log(error);
                 throw new common_1.InternalServerErrorException('');
             }
         }
@@ -54,7 +66,8 @@ let UserRepository = class UserRepository extends typeorm_1.Repository {
     }
 };
 UserRepository = __decorate([
-    typeorm_1.EntityRepository(user_entity_1.User)
+    typeorm_1.EntityRepository(user_entity_1.User),
+    __metadata("design:paramtypes", [mail_service_1.MailService])
 ], UserRepository);
 exports.UserRepository = UserRepository;
 //# sourceMappingURL=user.repository.js.map

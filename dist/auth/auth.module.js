@@ -11,10 +11,11 @@ const common_1 = require("@nestjs/common");
 const jwt_1 = require("@nestjs/jwt");
 const passport_1 = require("@nestjs/passport");
 const typeorm_1 = require("@nestjs/typeorm");
-const auth_controller_1 = require("./auth.controller");
-const auth_service_1 = require("./auth.service");
+const auth_controller_1 = require("./controller&service/auth.controller");
+const auth_service_1 = require("./controller&service/auth.service");
 const user_repository_1 = require("./entity&repository/user.repository");
 const jwt_strategy_1 = require("./jwtStrategies/jwt.strategy");
+const mail_module_1 = require("../mail/mail.module");
 const config = require("config");
 const jwtConfig = config.get('jwt');
 let AuthModule = class AuthModule {
@@ -30,6 +31,7 @@ AuthModule = __decorate([
                 },
             }),
             typeorm_1.TypeOrmModule.forFeature([user_repository_1.UserRepository]),
+            mail_module_1.MailModule,
         ],
         controllers: [auth_controller_1.AuthController],
         providers: [auth_service_1.AuthService, jwt_strategy_1.JwtStrategy],

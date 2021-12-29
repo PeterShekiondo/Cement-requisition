@@ -1,3 +1,7 @@
+import * as config from 'config';
+const smtpConfig = config.get('smtp');
+
+
 export const mailConfig = {
     /**
      * The Mail forwarding service to be used.
@@ -11,21 +15,21 @@ export const mailConfig = {
     smtp: {
         transport: 'smtp',
 
-        host: process.env.MAIL_HOST || 'smtp.mailgun.org',
+        host: smtpConfig.server || 'smtp.sendgrid.net',
 
-        port: process.env.MAIL_PORT || 587,
+        port: smtpConfig.port || 587,
 
-        encryption: process.env.MAIL_ENCRYPTION || 'tls',
+        encryption: smtpConfig.encryption || 'tls',
 
-        username: process.env.MAIL_USERNAME,
+        username: smtpConfig.username,
 
-        password: process.env.MAIL_PASSWORD,
+        password: smtpConfig.password,
 
         timeout: null as number,
 
         from: {
-            address: process.env.MAIL_FROM_ADDRESS || 'notifications@devsofttz.co.tz',
-            name: process.env.MAIL_FROM_NAME || 'Cement Requisitions',
+            address: smtpConfig.address || 'notifications@devsofttz.co.tz',
+            name: smtpConfig.name || 'Cement Requisitions',
         },
     },
 };

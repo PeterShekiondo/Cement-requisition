@@ -41,5 +41,6 @@ const smtpConfig = mailConfig.smtp;
             useClass: mailConfig.driver === 'log' ? LogMail : SmtpMail,
         },
     ],
+    exports: [MailService]
 })
 export class MailModule {}

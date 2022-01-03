@@ -13,6 +13,11 @@ export class MailService {
         this.mailDriver.sendMail(message, to);
     }
 
+    public sample(){ 
+        console.log('sample');
+        
+    }
+
     public createMessageBuilder(): MailMessageBuilder {
         return new MailMessageBuilder();
     }

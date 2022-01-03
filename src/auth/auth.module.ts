@@ -24,7 +24,7 @@ const jwtConfig = config.get('jwt')
     MailModule,
   ],
   controllers: [AuthController],
-  providers: [AuthService, JwtStrategy],
+  providers: [AuthService, JwtStrategy, ],
   exports: [JwtStrategy, PassportModule], // export modules so they may be able to be used by other modules
 })
 export class AuthModule {}

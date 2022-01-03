@@ -42,10 +42,10 @@ export class UserRepository extends Repository<User> {
     user.password = await this.hashPassword(password, user.salt);
 
     try {
-      await user.save();
+      // await user.save();
       const messageBuilder = this.mailService.createMessageBuilder()
-      const mailMessage = messageBuilder.build()
-      this.mailService.send(mailMessage, 'eistain94@gmail.com')
+      // const mailMessage = messageBuilder.from('eistain94@gmail.com').subject('mail subject').build()
+      // this.mailService.send(mailMessage, 'eistain94@gmail.com')
     } catch (error) {
       if (error.code == 23505) {
         throw new ConflictException('Account already exist');

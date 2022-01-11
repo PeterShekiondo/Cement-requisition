@@ -42,8 +42,8 @@ export class UserRepository extends Repository<User> {
     user.password = await this.hashPassword(password, user.salt);
 
     try {
-      // await user.save();
-      const messageBuilder = this.mailService.createMessageBuilder()
+      await user.save();
+      // const messageBuilder = this.mailService.createMessageBuilder()
       // const mailMessage = messageBuilder.from('eistain94@gmail.com').subject('mail subject').build()
       // this.mailService.send(mailMessage, 'eistain94@gmail.com')
     } catch (error) {

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateTruckDto } from '../dto/createTruck.dto';
 import { TruckEntity } from '../entity&repository/truck.entity';
@@ -18,5 +18,25 @@ export class TruckService {
     async getAllTruck(): Promise<TruckEntity>{
         const trucks = await this.truckRepository.findOne()
         return trucks
+    }
+
+    /**  
+     * FINISH THIS BLOCK
+     * */
+    async getTruckbyTruckNumber(truckNumber: number):Promise<TruckEntity[]>{
+        try {
+            const trucks = await this.truckRepository.find({
+                where: {truckNumber: truckNumber}
+            })
+            if (trucks.length == 0) {
+                throw new NotFoundException(`Forbidden: Truck with number ${truckNumber} does not exist`);            
+            }
+            return trucks
+        } catch (error) {
+            console.log(error);           
+            throw new NotFoundException(`Forbidden: Truck with number ${truckNumber} does not exist`);
+        }
+
+
     }
 }

@@ -9,6 +9,8 @@ export class SmtpMail implements MailDriver {
     constructor(private readonly mailerService: MailerService) {}
 
     async sendMail(message: MailMessage, to: string): Promise<void> {
+        console.log('heres');
+        
         const options: ISendMailOptions = {
             to: to, // list of receivers
             from: message.getFrom(), // sender address
@@ -16,16 +18,20 @@ export class SmtpMail implements MailDriver {
             text: message.getText(), // plaintext body
             html: message.getHtml(), // HTML body content
         };
-
+        
         this.logger.verbose(options);
 
         this.mailerService
             .sendMail(options)
             .then(() => {
-                //
+                console.log('mail sent');
+                
             })
-            .catch(() => {
-                //
+            .catch((error) => {
+                console.log(error);
+                
+                console.log('mail error');
+                
             });
     }
 }
